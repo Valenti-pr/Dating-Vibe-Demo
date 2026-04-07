@@ -4,6 +4,8 @@
 **Фаза:** Базовая реализация готова (скелет + секции + интерактив)  
 **Дата старта:** 31.03.2026  
 **Целевая дата MVP:** достигнута (демо запускается)  
+- **Репозиторий GitHub:** https://github.com/Valenti-pr/Dating-Vibe-Demo  
+- **Ветка по умолчанию:** `main` (отслеживает `origin/main`)  
 
 ---
 
@@ -12,6 +14,7 @@
 | Секция | Статус | Заметки |
 |---|---|---|
 | Настройка проекта | ✅ Готово | Next.js App Router + TS + Tailwind + ESLint конфиги, структура папок |
+| GitHub репозиторий | ✅ Готово | Создан `Dating-Vibe-Demo`, настроен `origin`, выполнен первый push |
 | HeroSection | ✅ Готово | AnimatedBackground + FloatingCards + CTA + stagger intro |
 | AnimationsSection | ✅ Готово | ProfileCard + StaggerDemo + scroll trigger |
 | InteractivitySection | ✅ Готово | LikeButton + confetti, MatchSlider, MoodTags |
