@@ -1,12 +1,18 @@
 "use client";
 
-import { motion, useSpring } from "framer-motion";
+import { useEffect } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 
 export function ScrollProgress() {
   const progress = useScrollProgress();
-  const width = useSpring(progress, { stiffness: 300, damping: 30, mass: 0.2 });
+  const motionProgress = useMotionValue(0);
+  const width = useSpring(motionProgress, { stiffness: 300, damping: 30, mass: 0.2 });
+
+  useEffect(() => {
+    motionProgress.set(progress);
+  }, [motionProgress, progress]);
 
   return (
     <div className="pointer-events-none fixed left-0 top-0 z-[60] h-1 w-full">

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"] });
 
@@ -17,9 +18,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" data-theme="dark" suppressHydrationWarning>
       <body className={inter.className}>
-        <ScrollProgress />
-        <Navbar />
-        {children}
+        <ThemeProvider>
+          <ScrollProgress />
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
