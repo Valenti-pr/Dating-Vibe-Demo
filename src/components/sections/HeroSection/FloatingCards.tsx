@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import type { Profile } from "@/types";
+import { UI_COPY } from "@/lib/constants";
+import { floatingCard } from "@/lib/animations";
 import { GlassPanel } from "@/components/ui/GlassPanel";
 
 interface Props {
@@ -31,7 +33,9 @@ function MiniCard({ profile }: { profile: Profile }) {
           <div className="truncate text-sm font-semibold">
             {profile.name}, {profile.age}
           </div>
-          <div className="text-xs text-fg/70">{profile.match}% match</div>
+          <div className="text-xs text-fg/70">
+            {profile.match}% {UI_COPY.match.title.toLowerCase()}
+          </div>
         </div>
       </div>
     </GlassPanel>
@@ -53,8 +57,10 @@ export function FloatingCards({ profiles }: Props) {
         <motion.div
           key={p.id}
           className={`absolute ${positions[i]}`}
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 4 + i * 0.7, repeat: Infinity, ease: "easeInOut" }}
+          custom={i}
+          variants={floatingCard}
+          initial={false}
+          animate="animate"
         >
           <MiniCard profile={p} />
         </motion.div>

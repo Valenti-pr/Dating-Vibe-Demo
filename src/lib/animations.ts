@@ -38,3 +38,32 @@ export const themeToggleIcon = {
   }
 };
 
+export const likeButtonTap = {
+  whileTap: { scale: 0.97 }
+};
+
+export const likeHeartPop = {
+  animate: { scale: [1, 1.25, 1] },
+  transition: { type: "spring", stiffness: 300, damping: 16 }
+};
+
+export const numberBump = {
+  hidden: { y: 6, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { type: "spring", stiffness: 300, damping: 25 }
+  }
+};
+
+export const floatingCard = {
+  animate: (i: number) => ({
+    y: [0, -10, 0],
+    transition: {
+      duration: 4 + i * 0.7,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  })
+};
+

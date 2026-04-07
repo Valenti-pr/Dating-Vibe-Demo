@@ -57,6 +57,72 @@ export const NAV_CTA = {
   }
 } as const;
 
+export const EXTERNAL_LINKS = {
+  githubRepo: "https://github.com/Valenti-pr/Dating-Vibe-Demo"
+} as const;
+
+export const UI_COPY = {
+  match: {
+    title: "Совместимость",
+    hint: "Двигай ползунок — значение пружинит.",
+    min: "0%",
+    max: "100%",
+    steps: [
+      { lt: 35, label: "Сомнительно", emoji: "😐" },
+      { lt: 70, label: "Интересно", emoji: "🙂" },
+      { lt: 90, label: "Очень даже", emoji: "😍" },
+      { lt: 101, label: "Судьба", emoji: "💘" }
+    ]
+  },
+  moods: {
+    title: "Теги настроения",
+    selectedPrefix: "Выбрано:",
+    selectedNone: "ничего"
+  },
+  like: {
+    labelDefault: "Match!",
+    labelPopular: "Ты слишком популярен",
+    countPrefix: "Лайков:"
+  },
+  effectsCards: [
+    {
+      accent: "pink",
+      title: "GlassCard",
+      description: "backdrop blur + полупрозрачный фон. Наведи курсор — появится мягкий glow."
+    },
+    {
+      accent: "violet",
+      title: "Glow Orbs",
+      description: "Декоративные blobs на фоне: чистый CSS, минимум JS."
+    },
+    {
+      accent: "cyan",
+      title: "GradientText",
+      description: "Анимированный градиент через background-clip: text."
+    }
+  ]
+} as const;
+
+export const HERO_COPY = {
+  badge: "Создано за 1 день с Claude и Cursor",
+  titleBeforeAccent: "Вайб‑лендинг для дейтинга",
+  titleAccent: "будущего",
+  description:
+    "Здесь всё сделано, чтобы захотелось кликать: карточки, эффекты, интерактивные демо и аккуратная типографика.",
+  ctaPrimary: { href: "#animations", label: "Смотреть демо" },
+  ctaSecondary: { href: EXTERNAL_LINKS.githubRepo, label: "GitHub" },
+  scrollHint: { href: "#animations", label: "Листай ниже" }
+} as const;
+
+export const FOOTER_COPY = {
+  brand: NAV_CTA.brand,
+  subtitle: "Создано за 24 часа с Claude + Cursor",
+  techStack: ["Next.js", "React", "TypeScript", "Tailwind", "Motion"],
+  github: { href: EXTERNAL_LINKS.githubRepo, label: "GitHub" },
+  backToTop: { href: "#hero", label: "Наверх" },
+  copyrightSuffix: "Dating2026. Demo project."
+} as const;
+
 export const PROFILES: Profile[] = [
   {
     id: "p1",
@@ -151,10 +217,10 @@ export const PROFILES: Profile[] = [
 ];
 
 export const MOOD_TAGS: Tag[] = [
-  { id: "t1", label: "Приключения" },
-  { id: "t2", label: "Кофе и разговоры" },
-  { id: "t3", label: "Танцы до утра" },
-  { id: "t4", label: "Серьёзно, но легко" },
-  { id: "t5", label: "Мемы обязательны" }
+  { id: "t1", label: "Приключения", emoji: "🧭" },
+  { id: "t2", label: "Кофе и разговоры", emoji: "☕" },
+  { id: "t3", label: "Танцы до утра", emoji: "💃" },
+  { id: "t4", label: "Серьёзно, но легко", emoji: "✨" },
+  { id: "t5", label: "Мемы обязательны", emoji: "🤣" }
 ];
 

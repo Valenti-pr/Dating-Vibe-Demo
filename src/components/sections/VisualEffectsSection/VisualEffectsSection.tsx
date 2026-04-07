@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { SECTIONS } from "@/lib/constants";
+import { SECTIONS, UI_COPY } from "@/lib/constants";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassCard } from "./GlassCard";
@@ -21,26 +21,14 @@ export default function VisualEffectsSection() {
         <SectionHeader number={s.number} tag={s.tag} title={s.title} description={s.description} />
 
         <motion.div variants={fadeInUp} className="mt-10 grid gap-4 lg:grid-cols-3">
-          <GlassCard accent="pink">
-            <div className="text-sm font-semibold">GlassCard</div>
-            <p className="mt-2 text-sm text-fg/75">
-              backdrop blur + полупрозрачный фон. Наведи курсор — появится мягкий glow.
-            </p>
-          </GlassCard>
-          <GlassCard accent="violet">
-            <div className="text-sm font-semibold">Glow Orbs</div>
-            <p className="mt-2 text-sm text-fg/75">
-              Декоративные blobs на фоне: чистый CSS, минимум JS.
-            </p>
-          </GlassCard>
-          <GlassCard accent="cyan">
-            <div className="text-sm font-semibold">
-              <GradientText text="GradientText" />
-            </div>
-            <p className="mt-2 text-sm text-fg/75">
-              Анимированный градиент через background-clip: text.
-            </p>
-          </GlassCard>
+          {UI_COPY.effectsCards.map((c) => (
+            <GlassCard key={c.title} accent={c.accent}>
+              <div className="text-sm font-semibold">
+                {c.title === "GradientText" ? <GradientText text={c.title} /> : c.title}
+              </div>
+              <p className="mt-2 text-sm text-fg/75">{c.description}</p>
+            </GlassCard>
+          ))}
         </motion.div>
       </motion.div>
     </section>

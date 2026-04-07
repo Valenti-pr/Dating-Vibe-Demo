@@ -27,5 +27,6 @@ export type Theme = "dark" | "light";
 export interface Tag {
   id: string;
   label: string;
+  emoji?: string;
 }
 

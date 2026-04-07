@@ -3,14 +3,13 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
+import { UI_COPY } from "@/lib/constants";
 import { clamp } from "@/lib/utils";
 import { GlassPanel } from "@/components/ui/GlassPanel";
 
 function labelFor(v: number) {
-  if (v < 35) return { label: "Сомнительно", emoji: "😐" };
-  if (v < 70) return { label: "Интересно", emoji: "🙂" };
-  if (v < 90) return { label: "Очень даже", emoji: "😍" };
-  return { label: "Судьба", emoji: "💘" };
+  const rule = UI_COPY.match.steps.find((s) => v < s.lt) ?? UI_COPY.match.steps.at(-1)!;
+  return { label: rule.label, emoji: rule.emoji };
 }
 
 export function MatchSlider() {
@@ -21,7 +20,7 @@ export function MatchSlider() {
   return (
     <GlassPanel className="p-6">
       <div className="flex items-center justify-between">
-        <div className="text-sm font-semibold">Совместимость</div>
+        <div className="text-sm font-semibold">{UI_COPY.match.title}</div>
         <div className="text-sm text-fg/80">
           <span className="mr-2">{meta.emoji}</span>
           {meta.label}
@@ -38,8 +37,8 @@ export function MatchSlider() {
           className="w-full accent-pink-400"
         />
         <div className="mt-3 flex items-center justify-between text-xs text-fg/60">
-          <span>0%</span>
-          <span>100%</span>
+          <span>{UI_COPY.match.min}</span>
+          <span>{UI_COPY.match.max}</span>
         </div>
       </div>
 
@@ -53,7 +52,7 @@ export function MatchSlider() {
         >
           {v}%
         </motion.div>
-        <div className="mt-2 text-sm text-fg/70">Двигай ползунок — значение пружинит.</div>
+        <div className="mt-2 text-sm text-fg/70">{UI_COPY.match.hint}</div>
       </div>
     </GlassPanel>
   );

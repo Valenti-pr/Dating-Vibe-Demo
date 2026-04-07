@@ -2,6 +2,7 @@
 
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { FOOTER_COPY } from "@/lib/constants";
 
 export default function FooterSection() {
   return (
@@ -10,30 +11,29 @@ export default function FooterSection() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <div className="text-lg font-semibold">
-              Dating<span className="text-fg/60">2026</span>
+              {FOOTER_COPY.brand.name}
+              <span className="text-fg/60">{FOOTER_COPY.brand.accent}</span>
             </div>
-            <div className="mt-2 text-sm text-fg/70">Создано за 24 часа с Claude + Cursor</div>
+            <div className="mt-2 text-sm text-fg/70">{FOOTER_COPY.subtitle}</div>
             <div className="mt-3 flex flex-wrap gap-2">
-              <Badge>Next.js</Badge>
-              <Badge>React</Badge>
-              <Badge>TypeScript</Badge>
-              <Badge>Tailwind</Badge>
-              <Badge>Motion</Badge>
+              {FOOTER_COPY.techStack.map((t) => (
+                <Badge key={t}>{t}</Badge>
+              ))}
             </div>
           </div>
 
           <div className="flex flex-col gap-3 sm:items-end">
-            <a href="https://github.com/" target="_blank" rel="noreferrer">
-              <Button>GitHub</Button>
+            <a href={FOOTER_COPY.github.href} target="_blank" rel="noreferrer">
+              <Button>{FOOTER_COPY.github.label}</Button>
             </a>
-            <a href="#hero" className="text-sm text-fg/70 hover:text-fg">
-              Наверх
+            <a href={FOOTER_COPY.backToTop.href} className="text-sm text-fg/70 hover:text-fg">
+              {FOOTER_COPY.backToTop.label}
             </a>
           </div>
         </div>
 
         <div className="mt-10 text-xs text-fg/50">
-          © {new Date().getFullYear()} Dating2026. Demo project.
+          © {new Date().getFullYear()} {FOOTER_COPY.copyrightSuffix}
         </div>
       </div>
     </footer>
