@@ -1,5 +1,3 @@
-"use client";
-
 import type { ButtonHTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
@@ -10,6 +8,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ className, variant = "primary", size = "md", ...props }: Props) {
+  const { type, ...rest } = props;
   return (
     <button
       className={cn(
@@ -22,7 +21,8 @@ export function Button({ className, variant = "primary", size = "md", ...props }
           : "bg-white/0 text-fg hover:bg-white/10 border border-white/15",
         className
       )}
-      {...props}
+      type={type ?? "button"}
+      {...rest}
     />
   );
 }

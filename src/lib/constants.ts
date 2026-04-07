@@ -103,6 +103,32 @@ export const UI_COPY = {
   ]
 } as const;
 
+export const PROFILE_CARD_COPY = {
+  actions: {
+    skip: "Пропустить",
+    like: "Лайк",
+    liked: "Лайкнут"
+  }
+} as const;
+
+export const RESPONSIVE_COPY = {
+  devices: {
+    desktop: { w: 860, h: 440, label: "Desktop" },
+    tablet: { w: 640, h: 440, label: "Tablet" },
+    mobile: { w: 360, h: 520, label: "Mobile" }
+  },
+  miniProfile: {
+    title: "Мини‑профиль",
+    description: "Смотри, как карточка переупаковывается под разный экран — без скачков, с spring‑анимацией.",
+    profileId: "p1",
+    matchPrefix: "AI‑совместимость:",
+    aboutTitle: "О себе",
+    aboutText:
+      "Люблю кофе в неожиданных местах, прогулки без маршрута и аккуратные идеи про AI‑matching. Если совпали по вайбу — жми лайк.",
+    interestsTitle: "Вайб‑теги"
+  }
+} as const;
+
 export const HERO_COPY = {
   badge: "Создано за 1 день с Claude и Cursor",
   titleBeforeAccent: "Вайб‑лендинг для дейтинга",

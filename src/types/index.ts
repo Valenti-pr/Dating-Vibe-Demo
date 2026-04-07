@@ -24,6 +24,8 @@ export interface Section {
 
 export type Theme = "dark" | "light";
 
+export type Device = "desktop" | "tablet" | "mobile";
+
 export interface Tag {
   id: string;
   label: string;

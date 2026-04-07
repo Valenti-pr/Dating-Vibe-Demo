@@ -67,3 +67,24 @@ export const floatingCard = {
   })
 };
 
+export const likePill = {
+  notLiked: {
+    boxShadow: "0 0 0 rgba(0,0,0,0)",
+    transition: { type: "spring", stiffness: 300, damping: 25 }
+  },
+  liked: {
+    boxShadow: "0 0 0 1px rgba(255,255,255,0.18), 0 0 40px rgba(236,72,153,0.18)",
+    transition: { type: "spring", stiffness: 300, damping: 25 }
+  }
+};
+
+export const buttonPress = {
+  whileTap: { scale: 0.98 }
+};
+
+export const layoutSpring = {
+  type: "spring",
+  stiffness: 300,
+  damping: 25
+} as const;
+

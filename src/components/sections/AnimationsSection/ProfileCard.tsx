@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Heart } from "lucide-react";
 
 import type { Profile } from "@/types";
-import { cardHover } from "@/lib/animations";
+import { buttonPress, cardHover, likePill } from "@/lib/animations";
+import { PROFILE_CARD_COPY } from "@/lib/constants";
 import { Badge } from "@/components/ui/Badge";
 import { GlassPanel } from "@/components/ui/GlassPanel";
 
@@ -13,6 +16,8 @@ interface Props {
 }
 
 export function ProfileCard({ profile }: Props) {
+  const [liked, setLiked] = useState(false);
+
   return (
     <motion.div {...cardHover} className="h-full">
       <GlassPanel className="h-full p-5">
@@ -46,12 +51,29 @@ export function ProfileCard({ profile }: Props) {
         </div>
 
         <div className="mt-5 flex gap-2">
-          <button className="flex-1 rounded-xl border border-white/10 bg-white/5 py-2 text-xs text-fg/80 hover:bg-white/10">
-            Пропустить
+          <button
+            type="button"
+            className="flex-1 rounded-xl border border-white/10 bg-white/5 py-2 text-xs text-fg/80 hover:bg-white/10"
+          >
+            {PROFILE_CARD_COPY.actions.skip}
           </button>
-          <button className="flex-1 rounded-xl bg-gradient-to-r from-accent-1/70 via-accent-2/70 to-accent-3/70 py-2 text-xs font-semibold text-white hover:opacity-95">
-            Лайк
-          </button>
+          <motion.button
+            type="button"
+            aria-pressed={liked}
+            onClick={() => setLiked((v) => !v)}
+            variants={likePill}
+            initial={false}
+            animate={liked ? "liked" : "notLiked"}
+            {...buttonPress}
+            className={liked
+              ? "flex-1 rounded-xl bg-gradient-to-r from-accent-1/80 via-accent-2/80 to-accent-3/80 py-2 text-xs font-semibold text-white ring-1 ring-white/20"
+              : "flex-1 rounded-xl bg-gradient-to-r from-accent-1/70 via-accent-2/70 to-accent-3/70 py-2 text-xs font-semibold text-white hover:opacity-95"}
+          >
+            <span className="inline-flex items-center justify-center gap-2">
+              <Heart className={liked ? "h-4 w-4 fill-white text-white" : "h-4 w-4"} />
+              {liked ? PROFILE_CARD_COPY.actions.liked : PROFILE_CARD_COPY.actions.like}
+            </span>
+          </motion.button>
         </div>
       </GlassPanel>
     </motion.div>

@@ -23,6 +23,8 @@
 | FooterSection | ✅ Готово | Базовый footer со стеком и ссылками |
 | Dark mode | ✅ Готово | ThemeToggle + data-theme на html + CSS variables |
 | Фото профилей | ✅ Готово | Портреты из Unsplash (через `next/image`), разрешён `images.unsplash.com` в next.config |
+| UI-примитивы | ✅ Готово | Button/Badge/GlassPanel: server by default, focus ring + type=button по умолчанию; SectionHeader использует variants из lib/animations |
+| Карточки профилей: лайк | ✅ Готово | Кнопка «Лайк» меняет состояние (liked) и визуально подтверждает действие |
 | Деплой на Vercel | ⬜ Не начато | |
 
 Статусы: ⬜ Не начато | 🟡 В процессе | ✅ Готово | 🔴 Заблокировано
@@ -113,6 +115,8 @@ _Нет_
 - [x] `npm run dev` — проект стартует без ошибок
 - [x] ScrollProgress — линия прогресса видна и корректно обновляется при скролле
 - [x] Карточки профилей — отображают фото (remote images) и не ломают layout
+- [x] ProfileCard — нажатие «Лайк» даёт визуальный feedback (кнопка меняет вид)
+- [x] ResponsiveSection — мини‑профиль показывает реальный контент (фото/описание/теги)
 
 ---
 
