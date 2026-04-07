@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 10 12 18;
+  --fg: 242 243 247;
+  --card: 18 22 32;
+  --border: 255 255 255;
+
+  --accent-1: 236 72 153;
+  --accent-2: 139 92 246;
+  --accent-3: 34 211 238;
+}
+
+html[data-theme="light"] {
+  --bg: 248 250 252;
+  --fg: 15 23 42;
+  --card: 255 255 255;
+  --border: 15 23 42;
+}
+
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+

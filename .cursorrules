@@ -1,0 +1,72 @@
+# Dating2026 — Правила для Cursor AI
+
+## Контекст проекта
+Одностраничный showcase-сайт "Онлайн-знакомства в 2026".
+Демонстрация возможностей вайбкодинга: анимации, интерактив, визуальные эффекты.
+Стек: Next.js 15, React 19, TypeScript, Tailwind CSS 4, Motion (Framer Motion 11).
+
+## Читай документацию перед работой
+- docs/PROJECT_OVERVIEW.md — цели и аудитория
+- docs/ARCHITECTURE.md — структура и компоненты
+- docs/TECH_STACK.md — стек и цветовая палитра
+- docs/CURRENT_STATUS.md — текущий прогресс и задачи
+
+## Правила кода
+
+### TypeScript
+- Всегда типизируй пропсы (interface Props, не type)
+- Используй типы из src/types/index.ts
+- Не используй any
+- Экспортируй именованно, не default (исключение: app/page.tsx, app/layout.tsx)
+
+### React компоненты
+- Функциональные компоненты с явными типами пропсов
+- Используй 'use client' только там, где нужен интерактив
+- Сервер-компоненты по умолчанию для статичного контента
+- Хуки — только в client компонентах
+
+### Анимации (Motion)
+- Импортируй variants из src/lib/animations.ts, не создавай inline
+- Всегда добавляй `once: true` к useInView (анимация только при первом появлении)
+- Используй spring physics для "живых" эффектов: `type: "spring", stiffness: 300, damping: 25`
+- Оборачивай списки в motion.ul/div с staggerChildren
+
+### Стилизация
+- Tailwind классы для layout и базовых стилей
+- CSS Variables (из globals.css) для цветов и тем — никогда не хардкодь hex
+- Не используй dark: классы Tailwind в компонентах — только в globals.css
+- Для glassmorphism: backdrop-filter + CSS vars
+
+### Именование
+- Компоненты: PascalCase (ProfileCard.tsx)
+- Хуки: camelCase с use-prefix (useTheme.ts)
+- Утилиты: camelCase (formatNumber)
+- CSS классы: kebab-case (если кастомные)
+- Константы: UPPER_SNAKE_CASE
+
+### Файловая структура
+- Каждая секция в своей папке sections/SectionName/
+- index.tsx только реэкспортирует: `export { default } from './SectionName'`
+- Субкомпоненты секции — в той же папке
+- Переиспользуемые UI-примитивы — в components/ui/
+
+## Контент
+- Все тексты, данные профилей, теги — ТОЛЬКО в src/lib/constants.ts
+- В компонентах не должно быть хардкода строк (кроме технических меток)
+- Имена профилей: русские, разнообразные
+- Контент тематический: дейтинг 2026, AI-matching, VR, mood tags
+
+## Производительность
+- next/image для всех изображений
+- Lazy load секций через dynamic() для тяжёлых компонентов
+- CSS animations предпочтительнее JS для простых эффектов
+
+## Запрещено
+- Не используй styled-components или emotion
+- Не добавляй зависимости без крайней необходимости
+- Не используй inline styles (только через style prop для CSS vars динамически)
+- Не создавай компоненты в app/page.tsx — только импорты
+
+## После каждой секции
+Обнови docs/CURRENT_STATUS.md — отметь что готово
+
