@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 import type { Profile } from "@/types";
 import { cardHover } from "@/lib/animations";
@@ -16,8 +17,18 @@ export function ProfileCard({ profile }: Props) {
     <motion.div {...cardHover} className="h-full">
       <GlassPanel className="h-full p-5">
         <div className="flex items-start gap-4">
-          <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-accent-1/35 via-accent-2/25 to-accent-3/35 text-lg font-semibold">
-            {profile.initials}
+          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br from-accent-1/35 via-accent-2/25 to-accent-3/35">
+            {profile.photo ? (
+              <Image
+                src={profile.photo.src}
+                alt={profile.photo.alt}
+                fill
+                sizes="56px"
+                className="object-cover"
+              />
+            ) : (
+              <div className="grid h-full w-full place-items-center text-lg font-semibold">{profile.initials}</div>
+            )}
           </div>
           <div className="min-w-0">
             <div className="truncate text-base font-semibold">

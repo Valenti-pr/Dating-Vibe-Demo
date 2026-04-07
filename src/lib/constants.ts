@@ -38,6 +38,25 @@ export const SECTIONS: Section[] = [
   }
 ];
 
+export const NAV_LINKS: Array<{ href: string; label: string }> = [
+  { href: "#hero", label: "Главная" },
+  { href: "#animations", label: "Анимации" },
+  { href: "#interactivity", label: "Интерактив" },
+  { href: "#effects", label: "Эффекты" },
+  { href: "#responsive", label: "Адаптив" }
+];
+
+export const NAV_CTA = {
+  demoHref: "#interactivity",
+  demoLabel: "Смотреть демо",
+  mobileDemoLabel: "Демо",
+  brand: {
+    href: "#hero",
+    name: "Dating",
+    accent: "2026"
+  }
+} as const;
+
 export const PROFILES: Profile[] = [
   {
     id: "p1",
@@ -46,7 +65,13 @@ export const PROFILES: Profile[] = [
     city: "Москва",
     initials: "А",
     interests: ["Кофе", "Прогулки", "AI‑matching"],
-    match: 92
+    match: 92,
+    photo: {
+      src: "https://images.unsplash.com/photo-1758523672347-d4a0e2bb33df?auto=format&fit=crop&w=256&h=256&q=80",
+      alt: "Портрет: Алина улыбается на синем фоне",
+      creditName: "Vitaly Gariev",
+      creditUrl: "https://unsplash.com/@silverkblack"
+    }
   },
   {
     id: "p2",
@@ -55,7 +80,13 @@ export const PROFILES: Profile[] = [
     city: "Санкт‑Петербург",
     initials: "Н",
     interests: ["Музыка", "Стартапы", "VR‑свидания"],
-    match: 84
+    match: 84,
+    photo: {
+      src: "https://images.unsplash.com/photo-1758523671894-b5891a2ef3b6?auto=format&fit=crop&w=256&h=256&q=80",
+      alt: "Портрет: Никита улыбается на синем фоне",
+      creditName: "Vitaly Gariev",
+      creditUrl: "https://unsplash.com/@silverkblack"
+    }
   },
   {
     id: "p3",
@@ -64,7 +95,13 @@ export const PROFILES: Profile[] = [
     city: "Казань",
     initials: "Л",
     interests: ["Кино", "Путешествия", "Мемы"],
-    match: 88
+    match: 88,
+    photo: {
+      src: "https://images.unsplash.com/photo-1769636930152-238ed1f7e07f?auto=format&fit=crop&w=256&h=256&q=80",
+      alt: "Портрет: Лера улыбается в студии",
+      creditName: "Jadon Johnson",
+      creditUrl: "https://unsplash.com/@jadonjohnson"
+    }
   },
   {
     id: "p4",
@@ -73,7 +110,13 @@ export const PROFILES: Profile[] = [
     city: "Екатеринбург",
     initials: "И",
     interests: ["Горы", "Фотография", "Нейросети"],
-    match: 79
+    match: 79,
+    photo: {
+      src: "https://images.unsplash.com/photo-1758613654360-45f1ff78c0cf?auto=format&fit=crop&w=256&h=256&q=80",
+      alt: "Портрет: Илья в джинсовой рубашке на светлом фоне",
+      creditName: "Vitaly Gariev",
+      creditUrl: "https://unsplash.com/@silverkblack"
+    }
   },
   {
     id: "p5",
@@ -82,7 +125,13 @@ export const PROFILES: Profile[] = [
     city: "Новосибирск",
     initials: "С",
     interests: ["Йога", "Рейвы", "Подкасты"],
-    match: 90
+    match: 90,
+    photo: {
+      src: "https://images.unsplash.com/photo-1569240134835-c20b283158e3?auto=format&fit=crop&w=256&h=256&q=80",
+      alt: "Портрет: Соня улыбается среди листьев",
+      creditName: "Rosesh Bhandari",
+      creditUrl: "https://unsplash.com/@roseshijk_z"
+    }
   },
   {
     id: "p6",
@@ -91,7 +140,13 @@ export const PROFILES: Profile[] = [
     city: "Ростов‑на‑Дону",
     initials: "Д",
     interests: ["Бег", "Еда", "Дизайн"],
-    match: 81
+    match: 81,
+    photo: {
+      src: "https://images.unsplash.com/photo-1758598302784-42d00ce2ba8f?auto=format&fit=crop&w=256&h=256&q=80",
+      alt: "Портрет: Даня в очках улыбается в помещении",
+      creditName: "Vitaly Gariev",
+      creditUrl: "https://unsplash.com/@silverkblack"
+    }
   }
 ];
 

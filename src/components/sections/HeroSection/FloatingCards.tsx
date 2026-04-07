@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 import type { Profile } from "@/types";
 import { GlassPanel } from "@/components/ui/GlassPanel";
@@ -13,8 +14,18 @@ function MiniCard({ profile }: { profile: Profile }) {
   return (
     <GlassPanel className="w-44 p-3">
       <div className="flex items-center gap-3">
-        <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-accent-1/40 via-accent-2/30 to-accent-3/40 text-sm font-semibold">
-          {profile.initials}
+        <div className="relative h-10 w-10 overflow-hidden rounded-xl bg-gradient-to-br from-accent-1/40 via-accent-2/30 to-accent-3/40">
+          {profile.photo ? (
+            <Image
+              src={profile.photo.src}
+              alt={profile.photo.alt}
+              fill
+              sizes="40px"
+              className="object-cover"
+            />
+          ) : (
+            <div className="grid h-full w-full place-items-center text-sm font-semibold">{profile.initials}</div>
+          )}
         </div>
         <div className="min-w-0">
           <div className="truncate text-sm font-semibold">

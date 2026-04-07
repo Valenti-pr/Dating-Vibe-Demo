@@ -1,18 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-
-const LINKS = [
-  { href: "#hero", label: "Главная" },
-  { href: "#animations", label: "Анимации" },
-  { href: "#interactivity", label: "Интерактив" },
-  { href: "#effects", label: "Эффекты" },
-  { href: "#responsive", label: "Адаптив" }
-];
+import { NAV_CTA, NAV_LINKS } from "@/lib/constants";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,12 +27,13 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <a href="#hero" className="font-semibold tracking-tight">
-          Dating<span className="text-fg/60">2026</span>
+        <a href={NAV_CTA.brand.href} className="font-semibold tracking-tight">
+          {NAV_CTA.brand.name}
+          <span className="text-fg/60">{NAV_CTA.brand.accent}</span>
         </a>
 
         <nav className="hidden items-center gap-6 md:flex">
-          {LINKS.map((l) => (
+          {NAV_LINKS.map((l) => (
             <a key={l.href} href={l.href} className="text-sm text-fg/80 hover:text-fg transition">
               {l.label}
             </a>
@@ -47,16 +42,17 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle className="hidden sm:inline-flex" />
-          <a href="#interactivity" className="hidden sm:block">
-            <Button size="sm">Смотреть демо</Button>
+          <a href={NAV_CTA.demoHref} className="hidden sm:block">
+            <Button size="sm">{NAV_CTA.demoLabel}</Button>
           </a>
           <button
             type="button"
-            aria-label="Open menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
             className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 md:hidden"
             onClick={() => setOpen((v) => !v)}
           >
-            ☰
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
       </div>
@@ -66,14 +62,14 @@ export function Navbar() {
           <div className="mx-auto max-w-6xl px-4 py-3">
             <div className="flex items-center justify-between py-2">
               <ThemeToggle />
-              <a href="#interactivity">
+              <a href={NAV_CTA.demoHref}>
                 <Button size="sm" onClick={() => setOpen(false)}>
-                  Демо
+                  {NAV_CTA.mobileDemoLabel}
                 </Button>
               </a>
             </div>
             <div className="flex flex-col gap-2 py-2">
-              {LINKS.map((l) => (
+              {NAV_LINKS.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}

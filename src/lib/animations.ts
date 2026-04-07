@@ -22,3 +22,19 @@ export const slideInLeft = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
 };
 
+export const themeToggleIcon = {
+  hidden: { rotateY: 90, opacity: 0, scale: 0.9 },
+  visible: {
+    rotateY: 0,
+    opacity: 1,
+    scale: 1,
+    transition: { type: "spring", stiffness: 300, damping: 25 }
+  },
+  exit: {
+    rotateY: -90,
+    opacity: 0,
+    scale: 0.9,
+    transition: { type: "spring", stiffness: 300, damping: 25 }
+  }
+};
+

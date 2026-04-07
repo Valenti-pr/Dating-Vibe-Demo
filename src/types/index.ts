@@ -6,6 +6,12 @@ export interface Profile {
   initials: string;
   interests: string[];
   match: number;
+  photo?: {
+    src: string;
+    alt: string;
+    creditName: string;
+    creditUrl: string;
+  };
 }
 
 export interface Section {

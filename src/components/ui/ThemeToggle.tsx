@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { useTheme } from "@/hooks/useTheme";
+import { themeToggleIcon } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -23,16 +24,18 @@ export function ThemeToggle({ className }: Props) {
       )}
       aria-label="Toggle theme"
     >
-      <motion.span
-        key={theme}
-        initial={{ rotateY: 90, opacity: 0, scale: 0.9 }}
-        animate={{ rotateY: 0, opacity: 1, scale: 1 }}
-        exit={{ rotateY: -90, opacity: 0, scale: 0.9 }}
-        transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        className="text-sm"
-      >
-        {theme === "dark" ? "☾" : "☀"}
-      </motion.span>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={theme}
+          variants={themeToggleIcon}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="text-sm"
+        >
+          {theme === "dark" ? "☾" : "☀"}
+        </motion.span>
+      </AnimatePresence>
     </button>
   );
 }
